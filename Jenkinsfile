@@ -31,6 +31,10 @@ pipeline{
                 sh 'sudo mv /var/lib/jenkins/workspace/mypipeline/target/addressbook.war /home/ubuntu/apache-tomcat-8.5.100/webapps/'
             }
         }
-
+       stage('Restart Tomcat') {
+          steps {
+              sh 'sudo systemctl restart tomcat'
+           }
+        }
     }
 }
